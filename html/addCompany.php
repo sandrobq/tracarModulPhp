@@ -1,13 +1,16 @@
 <html>
 <head></head>
 <body>
+    <div class="container">
+       <div>
     <form action="addCompanyDatabase.php">
        id <input type="text" name="id"><br>
        name <input type="text" name="name"><br>
-        address <input type="text" name="address"><br>
+       address <input type="text" name="address"><br>
         phone<input type="text" name="phone"><br>
         <input type="submit">
-    </form><br>
+    </form>
+        </div>
     <table border=3>
         <?php
            $url="localhost";
@@ -39,5 +42,6 @@
            }
         ?>
     </table>
+    </div>
 </body>
 </html>
