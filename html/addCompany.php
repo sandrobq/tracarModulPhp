@@ -15,7 +15,7 @@
         <?php
            $url="localhost";
            $user="root";
-           $password="";
+           $password="111111";
            if($m=mysqli_connect($url,$user,$password,"track"))
            {
                if($s=$m->query("select * from company"))
