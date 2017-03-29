@@ -42,22 +42,6 @@
                         </td>
                     </tr>
                 </table>
-                <script>
-                    $("#deletebuttonfile").click(function() {
-                        var s = $(".filesi");
-                        var str="?";
-                        for (var i = 0; i < s.length; i++) {
-
-                            if (s[i].checked) {
-                                str+="namef[]="+s[i].value+"&";
-//                                alert(s[i].value);
-                            } else {
-                            }
-                        }
-                        //$(".col").css("background-color","red");
-                         $(location).attr('href',"t.php"+str);
-                    });
-                </script>
             </div>
         </div>
 
@@ -76,7 +60,7 @@
         </table>
 
     </div>
-
+<script type="text/javascript" src="js/trackscript.js"></script>
 </body>
 
 </html>
