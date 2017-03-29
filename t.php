@@ -1,6 +1,6 @@
 <?php
    
-   $ar=$_GET["ch1"];//[0];
+   $ar=$_GET["namef"];//[0];
    echo $ar[1]."<br>";
 echo $ar[0];
 ?>

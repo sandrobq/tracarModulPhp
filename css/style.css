@@ -11,6 +11,7 @@
 .tablefile {
   width: 300px;
   height: 100px;
-  background: blue; }
+  background: blue;
+  overflow: auto; }
 
 /*# sourceMappingURL=style.css.map */
