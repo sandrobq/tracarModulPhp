@@ -1,0 +1,16 @@
+.mu {
+  width: 100%;
+  height: 40px;
+  background: red; }
+
+.col {
+  width: 100%;
+  height: 150px;
+  background: green; }
+
+.tablefile {
+  width: 300px;
+  height: 100px;
+  background: blue; }
+
+/*# sourceMappingURL=style.css.map */

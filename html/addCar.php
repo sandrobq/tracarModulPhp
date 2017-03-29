@@ -26,7 +26,7 @@
 			<?php
 			   $url="localhost";
 			   $user="root";
-			   $password="111111";
+			   $password="";
 			   if($mysql=mysqli_connect($url,$user,$password,'track'))
 			   {
 				   if($s=$mysql->query("select * from tractor"))
