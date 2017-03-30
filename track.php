@@ -40,24 +40,28 @@
                         <td>
                             <button id="openbuttonfile" style="width:70px;height:70px;">open</button>
                         </td>
+                        <?php
+                          if(isset($_GET['all']))
+                          {
+                              $alls=$_GET['all'];
+                              echo "<td>всего переданых данных<td>";
+                              echo "<td>".$alls."</td>";
+                          }
+                        if(isset($_GET['true']))
+                          {
+                              $alls=$_GET['true'];
+                              echo "<td>добавленных<td>";
+                              echo "<td>".$alls."</td>";
+                          }
+                        if(isset($_GET['false']))
+                          {
+                              $alls=$_GET['false'];
+                              echo "<td>недобавленных<td>";
+                              echo "<td>".$alls."</td>";
+                          }
+                        ?>
                     </tr>
                 </table>
-                <script>
-                    $("#deletebuttonfile").click(function() {
-                        var s = $(".filesi");
-                        var str="?";
-                        for (var i = 0; i < s.length; i++) {
-
-                            if (s[i].checked) {
-                                str+="namef[]="+s[i].value+"&";
-//                                alert(s[i].value);
-                            } else {
-                            }
-                        }
-                        //$(".col").css("background-color","red");
-                         $(location).attr('href',"t.php"+str);
-                    });
-                </script>
             </div>
         </div>
 
@@ -76,7 +80,7 @@
         </table>
 
     </div>
-
+  <script type="text/javascript" src="js/track.js"></script>
 </body>
 
 </html>

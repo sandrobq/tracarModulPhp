@@ -1,6 +1,9 @@
 <?php
    
-   $ar=$_GET["namef"];//[0];
-   echo $ar[1]."<br>";
-echo $ar[0];
+   $ar=$_GET["namef"];
+   $c=count($ar);
+   for($i=0;$i<$c;$i++)
+   {
+       echo $ar[$i]."<br>";
+   }
 ?>
