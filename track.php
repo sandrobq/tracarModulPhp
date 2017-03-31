@@ -25,7 +25,36 @@
                             <div class="tablefile">
                                 <form>
                                     <table border=3>
-                                        <?php $d=opendir( "file"); while($e=readdir($d)) { if(($e=="." )or($e==".." )) { } else { echo "<tr><td>".$e. "</td>"; echo "<td><input type='checkbox' name='files[]' value=".$e. " class='filesi' ></td></tr>"; } } closedir($d); ?>
+                                       <thead>
+                                           
+                                           <tr>
+                                               <td width="250">name file</td>
+                                               <td width="40">dat</td>
+                                               <td width="70">size file</td>
+                                               <td width="100">date file</td>
+                                           </tr>
+                                       </thead>
+                                       <tbody>
+                                        <?php 
+                                        $d=opendir( "file"); 
+                                        while($e=readdir($d)) 
+                                        { 
+                                            if(($e=="." )or($e==".." )) 
+                                            { 
+                                            } 
+                                            else 
+                                            { 
+                                                $fileDataInfo=stat("file/".$e);
+                                                echo "<tr><td>".$e. "</td>"; 
+                                                echo "<td>".$fileDataInfo[0]."</td>";
+                                                echo "<td>".($fileDataInfo[7]/1024)."Kb</td>";
+                                                echo "<td>".date('l d F',$fileDataInfo[9])."</td>";
+                                                echo "<td><input type='checkbox' name='files[]' value=".$e. " class='filesi' ></td></tr>"; 
+                                            } 
+                                        } 
+                                        closedir($d); 
+                                        ?>
+                                        </tbody>
                                     </table>
                                 </form>
 
@@ -40,26 +69,30 @@
                         <td>
                             <button id="openbuttonfile" style="width:70px;height:70px;">open</button>
                         </td>
+                        <td>
                         <?php
                           if(isset($_GET['all']))
-                          {
+                          {   
+                              echo "<table><tr><td width='100'>Всего строк</td>";
+                              echo "<td width='100'>Принятых</td>";
+                              echo "<td width='100'>Отклоненых</td></tr>";
+                              echo "<tr style='font-size:50px;'>";
                               $alls=$_GET['all'];
-                              echo "<td>всего переданых данных<td>";
                               echo "<td>".$alls."</td>";
                           }
                         if(isset($_GET['true']))
                           {
                               $alls=$_GET['true'];
-                              echo "<td>добавленных<td>";
-                              echo "<td>".$alls."</td>";
+                              echo "<td style='color:green'>".$alls."</td>";
                           }
                         if(isset($_GET['false']))
                           {
                               $alls=$_GET['false'];
-                              echo "<td>недобавленных<td>";
-                              echo "<td>".$alls."</td>";
+                              echo "<td style='color:red'>".$alls."</td>";
+                            echo "</tr></table>";
                           }
                         ?>
+                                 </td>
                     </tr>
                 </table>
             </div>
@@ -68,14 +101,13 @@
 
         <!-- table view -->
 
-        <form action="">
-            <select name="fileViw">
-                <?php $d=opendir( "file"); while($e=readdir($d)) { if(($e=='.' )or($e=='..' )) { }else{ echo '<option value="'.$e. '">'.$e. '</option>'; } } closedir($d); ?>
-            </select>
-            <input type="submit" value="open">
-        </form>
 
         <table border="3">
+            <thead>
+                <tr>
+                    
+                </tr>
+            </thead>
             <?php if(isset($_GET[ 'fileViw'])) { $s=$_GET[ 'fileViw']; $file=fopen( "file/".$s, "rt"); for($i=0;$data=fgetcsv($file,0, ";");$i++) { $n=count($data); echo "<tr>"; for($j=0;$j<$n;$j++) { echo "<td>".$data[$j]. "</td>"; } echo "</tr>"; } fclose($file); } ?>
         </table>
 

@@ -1,7 +1,8 @@
 <?php
-    $url="localhost";
-    $user="root";
-    $password="";
+               $ini=parse_ini_file('param.ini',true);
+			   $url="".$ini['database']['url'];
+			   $user="".$ini['database']['user'];
+			   $password="".$ini['database']['password'];
     $arrayFileName=$_GET['fileadd']; 
     $colFile=count($arrayFileName);
     $allCount=0;

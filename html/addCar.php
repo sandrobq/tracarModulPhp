@@ -24,9 +24,10 @@
 		<!-- table view -->
 		<table border="3">
 			<?php
-			   $url="localhost";
-			   $user="root";
-			   $password="";
+               $ini=parse_ini_file(realpath('../param.ini'),true);
+			   $url="".$ini['database']['url'];
+			   $user="".$ini['database']['user'];
+			   $password="".$ini['database']['password'];
 			   if($mysql=mysqli_connect($url,$user,$password,'track'))
 			   {
 				   if($s=$mysql->query("select * from tractor"))
