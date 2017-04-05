@@ -19,6 +19,7 @@
                     <tr>
                         <td>
                             <form action="loadfile.php" method="post" enctype="multipart/form-data">
+                                <input type="hidden" name="param" value="1">
                                 <input type="file" name="lodfile">
                                 <input type="submit" value="отправить">
                             </form>
